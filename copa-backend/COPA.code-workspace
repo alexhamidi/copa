@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+    "settings": {
+        "explorer.enableDragAndDrop": false,
+        "sqltools.connections": [
+            {
+                "previewLimit": 50,
+                "server": "localhost",
+                "port": 5430,
+                "driver": "PostgreSQL",
+                "name": "postgres server",
+                "database": "postgres",
+                "username": "alexanderhamidi",
+                "password": "Ah375861!"
+            }
+        ],
+        "git.ignoreLimitWarning": true
+    }
+}

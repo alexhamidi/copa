@@ -24,13 +24,13 @@ def parse(pdb_content):
         naccess_instance = NACCESS(structure, pdb_file='temp.pdb')
 
         cysteine_residues_info = {}
-
+        
         #get Amino Acids and ASA
         sulfur_atoms = [] #need to populate
         for model in structure: #
             for chain in model:
                 for residue in chain:
-                    if residue.get_resname() == 'CYS':
+                    if residue.get_resname() == 'CYS':  
                         res_id = residue.id[1]
                         current_residue = {'asa': None, 'p_ka_of_s0': None, 's1_distance': float('inf')}
 
@@ -51,21 +51,21 @@ def parse(pdb_content):
                         if residue_key in naccess_instance:
                             residue_asa = naccess_instance[residue_key]['all_atoms_rel']
                             current_residue['asa'] = residue_asa
-
+            
                         #add atom to list
                         if 'SG' in residue:
                             sulfur_atoms.append((res_id, residue['SG']))
 
                         cysteine_residues_info[res_id] = current_residue
-
+        
         #get distances
         for (res_id1, sulfur1), (res_id2, sulfur2) in combinations(sulfur_atoms, 2): # get all combos
             distance = sulfur1 - sulfur2
-
+            
             # Update s1 for res_id1
             if 's1_distance' not in cysteine_residues_info[res_id1] or distance < cysteine_residues_info[res_id1]['s1'][1]:
                 cysteine_residues_info[res_id1]['s1_distance'] = distance
-
+            
             # Update s1 for res_id2
             if 's1_distance' not in cysteine_residues_info[res_id2] or distance < cysteine_residues_info[res_id2]['s1'][1]:
                 cysteine_residues_info[res_id2]['s1_distance'] = distance
@@ -78,16 +78,16 @@ def parse(pdb_content):
                     if residue_number in cysteine_residues_info:
                         cysteine_residues_info[residue_number]['p_ka_of_s0'] = round(group.pka_value, 2)
 
-    finally:
+    finally: 
         os.remove('temp.pdb')
-
+        
     return cysteine_residues_info
 
 def main(argv):
     if len(argv) < 1:
         print("Error: PDB content is required.")
         sys.exit(1)
-
+    
     pdb_content = argv[0]
     try:
         result = parse(pdb_content)

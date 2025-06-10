@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function UploadArea() {
+export default function File() {
     const [returnedData, setReturnedData] = useState([]);
     const [dataReturnedSuccessfully, setDataReturnedSuccessfully] = useState(false);
 
@@ -19,7 +19,7 @@ export default function UploadArea() {
             const content = event.target.result;
             try {
                 const jsonData = JSON.parse(content);
-                axios.post('https://friendly-mountie-34761-cb952c5c6fed.herokuapp.com/api/copafile', jsonData)
+                axios.post('http://localhost:3000/api/copafile', jsonData)
                     .then(response => {
                         setReturnedData(response.data);
                         setDataReturnedSuccessfully(true);

@@ -4,6 +4,7 @@ import OSCTdb from "./components/OSCTdb";
 import BALOSCTdb from "./components/BALOSCTdb";
 import About from "./components/About";
 import COPA from "./components/COPA";
+import COPAtwo from "./components/COPAtwo";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/OSCTdb" element={<OSCTdb/>} />
                 <Route path="/BALOSCTdb" element={<BALOSCTdb />} />
                 <Route path="/COPA" element={<COPA />} />
+                <Route path="/COPAtwo" element={<COPAtwo />} />
                 {/* API */}
         </Routes>
     </Router>

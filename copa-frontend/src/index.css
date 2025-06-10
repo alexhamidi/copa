@@ -29,7 +29,7 @@ nav {
 
 nav header {
     text-align: center;
-    width: 25vw;
+    width: 20vw;
     padding: 1.4rem 0;
     font-size: large;
     transition: ease-in-out 180ms;
@@ -158,7 +158,7 @@ td{
     white-space: nowrap;
 }
 
-td:hover, .tableOptions button:hover {
+.database td:hover, .tableOptions button:hover {
     cursor: pointer;
     background-color: rgb(196, 232, 255);
 }

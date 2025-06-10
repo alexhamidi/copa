@@ -22,7 +22,7 @@ export default function TextArea() {
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            axios.post('https://friendly-mountie-34761-cb952c5c6fed.herokuapp.com/api/copatext', formData)
+            axios.post('http://localhost:3000/api/copatext', formData)
                 .then(response => {
                     setReturnedData(response.data);
                     setDataReturnedSuccessfully(true);

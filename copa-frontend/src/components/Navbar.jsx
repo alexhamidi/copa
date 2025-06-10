@@ -16,6 +16,9 @@ export default function Navbar() {
         <NavLink to="/COPA">
             <header> COPA</header>
         </NavLink>
+        <NavLink to="/COPAtwo">
+            <header> COPA2</header>
+        </NavLink>
     </>
   );
 }

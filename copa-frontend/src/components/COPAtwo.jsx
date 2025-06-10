@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import UploadArea from './COPA1/UploadArea';
-import TextArea from './COPA1/TextArea';
+import UploadArea from './COPA2/File';
+import TextArea from './COPA2/PBD';
 
 
 
-export default function COPA() {
-    const [inputTypeText, setInputTypeText] = useState(false);
+export default function COPAtwo() {
+    const [inputTypeText, setInputTypeText] = useState(true);
 
 
     function handleInputChange() {
@@ -14,7 +14,7 @@ export default function COPA() {
 
     return (
         <div className='page'>
-            <header className = 'title'> Cysteine Oxidation Prediction Algorithm (COPA)</header> 
+            <header className = 'title'> Cysteine Oxidation Prediction Algorithm (COPA2)</header> 
 
             <section className = 'text'>
                 <p>
@@ -26,8 +26,8 @@ classify the cysteines in 80.4% of the cases. To use COPA, you can either input 
                 </p>
             </section>
             <fieldset id = 'inputFormats' > Input Format:  
-                <label>File<input type='radio' checked = {!inputTypeText} onChange={handleInputChange}/> </label>
                 <label>Text<input type='radio' checked = {inputTypeText} onChange={handleInputChange}/></label>
+                <label>File<input type='radio' checked = {!inputTypeText} onChange={handleInputChange}/> </label>
             </fieldset>
             {!inputTypeText && <UploadArea/>}
             {inputTypeText && <TextArea/>}
